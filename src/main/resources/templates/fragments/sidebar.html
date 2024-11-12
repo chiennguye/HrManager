@@ -1,0 +1,70 @@
+    <!-- Nội dung của sidebar -->
+<div id="layoutSidenav" th:fragment="sidebar">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Cơ sở dữ liệu</div>
+                    
+
+                    <a class="nav-link" href="ndex.html" data-bs-toggle="collapse" data-bs-target="#collapseDashboard" aria-expanded="false" aria-controls="collapseDashboard">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Tổng quan
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseDashboard" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="javascript:void(0);" onclick="loadContent('/admin/listAcount')">Danh sách tài khoản</a>
+                        </nav>
+                    </div>
+
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        Quản lý nhân viên
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Chức vụ</a>
+                            <a class="nav-link" href="#">Trình độ</a>
+                            <a class="nav-link" href="#">Chuyên Môn</a>
+                            <a class="nav-link" href="#">Bằng cấp</a>
+                            <a class="nav-link" href="#">Loại nhân viên</a>
+                            <a class="nav-link" href="#">Thêm mới nhân viên</a>
+                            <a class="nav-link" href="javascript:void(0);" onclick="loadContent('/admin/employeeManage')">Danh sách nhân viên</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="#">
+                        <div class="sb-nav-link-icon"><i class="fas fa-sitemap"></i></div>
+                        Quản lý phòng ban
+                    </a>
+
+                    <a class="nav-link" href="ndex.html" data-bs-toggle="collapse" data-bs-target="#collapseSalary" aria-expanded="false" aria-controls="collapseSalary">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Quản lý lương
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseSalary" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Bảng tính lương</a>
+                            <a class="nav-link" href="#">Tính lương</a>
+                        </nav>
+                    </div>
+                                     
+                    <a class="nav-link" href="charts.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                        Quản lý tài khoản
+                    </a>
+                    <a class="nav-link" href="tables.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
+                        Quản lý quyền truy cập
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                <span th:text="${username}">Username</span>
+            </div>
+        </nav>
+    </div>

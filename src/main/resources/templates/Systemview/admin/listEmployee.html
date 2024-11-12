@@ -1,0 +1,70 @@
+<div id="layoutSidenav_content">
+    <main id="maincontent-listEmployee" th:fragment="maincontent">
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Danh sách nhân viên</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Danh sách nhân viên</li>
+            </ol>
+            
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Dữ liệu nhân viên
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã nhân viên</th>
+                                <th>Ảnh</th>
+                                <th>Họ tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ</th>
+                                <th>Số CMND</th>
+                                <th>Tình trạng</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã nhân viên</th>
+                                <th>Ảnh</th>
+                                <th>Họ tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ</th>
+                                <th>Số CMND</th>
+                                <th>Tình trạng</th>
+
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            
+                                <tr  th:each="employee, iterStat : ${employees}">
+                                    <td th:text="${iterStat.index + 1}"></td>
+                                    <td th:text="${employee.employeeCode}"></td>
+                                    <td th:text="${employee.imagePath}"> </td>
+                                    <td th:text="${employee.fullName}"></td>
+                                    <td th:text="${employee.gender.getDisplayName()}"></td>
+                                    <td th:text="${#dates.format(employee.dateOfBirth, 'dd/MM/yyyy')}"></td>
+                                    <td th:text="${employee.address}"></td>
+                                    <td th:text="${employee.citizenId}"></td>
+                                    <td>
+                                        <p th:text="${employee.status.getDisplayName()}"
+                                           th:style="${employee.status.getColor()}">
+                                        </p>
+                                    </td>
+                                                                                
+                                </tr>                                                                               
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>

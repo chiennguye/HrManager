@@ -1,0 +1,62 @@
+<div id="layoutSidenav_content">
+    <main id="maincontent-listAcount" th:fragment="maincontent">
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Danh sách tài khoản</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Danh sách tài khoản</li>
+            </ol>
+            
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Dữ liệu tài khoản người dùng
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên người dùng</th>
+                                <th>Email</th>
+                                <th>Họ tên</th>
+                                <th>Quyền truy cập</th>
+                                <th>Trạng thái</th>
+                                <th>Số điện thoại</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên người dùng</th>
+                                <th>Email</th>
+                                <th>Họ tên</th>
+                                <th>Quyền truy cập</th>
+                                <th>Trạng thái</th>
+                                <th>Số điện thoại</th>
+
+                            </tr>
+                        </tfoot>
+                        <tbody>                           
+                                <tr  th:each="account, iterStat : ${accounts}">
+                                    <td th:text="${iterStat.index + 1}"></td>
+                                    <td th:text="${account.username}"></td>
+                                    <td th:text="${account.email}"></td>
+                                    <td th:text="${account.fullname}"></td>
+                                    <td> 
+                                        <p th:text="${account.role.getDisplayRole()}"
+                                           th:style="${account.role.getColor()}">
+                                        </p>   
+                                    </td>
+                                    <td th:text="${account.enabled.getDisplayStatusAcount()}"></td>
+                                    <td th:text="${account.phonenumber}"></td>                                                                                                                   
+                                </tr>                                                                               
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(90deg, #9C28B0, #673AB7); /* Gradient từ tím sang xanh dương */
+}
+
+.content {
+    height: 100vh; /* Đảm bảo chiều cao là 100% chiều cao viewport */
+}
+.box{
+    background-color: aliceblue;
+}
+.bi{
+    padding: 11px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    text-decoration: none;
+    margin: 1px 3px;
+    border-radius: 50%;
+}
+.bi-facebook{
+  font-size: 30px;
+}  
+.bi-google {
+    font-size: 30px;
+    color: rgb(228, 2, 2);
+    
+}
+
+
+.bi-twitter{
+    font-size: 30px;
+    color: rgb(4, 196, 196);
+  } 
